@@ -7,6 +7,7 @@ import argparse
 import sys
 from typing import Dict, Any, Union
 
+
 def load_clean_tickets(csv_path: Union[str, Path]) -> pd.DataFrame:
     """
     Load the tickets CSV, clean the data and add derived columns.
@@ -101,25 +102,22 @@ def load_csv_to_db(csv_path: str) -> bool:
 def get_parameters() -> Dict[str, Any]:
     """
     Parse command line arguments and return parameters for the script.
-    
+
     Returns:
         Dict[str, Any]: Dictionary containing script parameters
     """
     parser = argparse.ArgumentParser(
-        description='Data loader script for CSV to database operations'
+        description="Data loader script for CSV to database operations"
     )
-    
+
     parser.add_argument(
-        '--csv_path',
-        type=str,
-        required=True,
-        help='Path to the CSV file to load'
+        "--csv_path", type=str, required=True, help="Path to the CSV file to load"
     )
-    
+
     args = parser.parse_args()
-    
+
     return {
-        'csv_path': args.csv_path,
+        "csv_path": args.csv_path,
     }
 
 
@@ -130,23 +128,23 @@ def main():
     try:
         # Get parameters from command line
         params = get_parameters()
-        
+
         print(f"Starting data loader with parameters: {params}")
-        
+
         # Load CSV file
-        csv_path = params['csv_path']
+        csv_path = params["csv_path"]
         print(f"Loading CSV file: {csv_path}")
-        
+
         # Here you would implement the actual loading logic
         # For now, just call the existing function
         success = load_csv_to_db(csv_path)
-        
+
         if success:
             print(f"Successfully loaded data from {csv_path}")
         else:
             print(f"Failed to load data from {csv_path}")
             sys.exit(1)
-            
+
     except Exception as e:
         print(f"Error in main execution: {str(e)}")
         sys.exit(1)
@@ -154,4 +152,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-

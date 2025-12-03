@@ -2,18 +2,21 @@ from pydantic import BaseModel
 from typing import Optional
 from datetime import datetime
 
+
 class UserCreate(BaseModel):
     name: str
     email: str
+
 
 class UserResponse(BaseModel):
     id: int
     name: str
     email: str
     created_at: Optional[str] = None
-    
+
     class Config:
         from_attributes = True
+
 
 class Ticket(BaseModel):
     ticket_id: int
@@ -25,4 +28,3 @@ class Ticket(BaseModel):
     status: str
     priority: str
     agent: str
-    
