@@ -1,6 +1,7 @@
 from pathlib import Path
 from models import Ticket
 from database import engine, SessionLocal
+from sqlalchemy.orm import Session
 import pandas as pd
 import argparse
 import sys
