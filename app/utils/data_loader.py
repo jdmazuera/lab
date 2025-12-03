@@ -1,11 +1,13 @@
-from pathlib import Path
-from models import Ticket
-from database import engine, SessionLocal
-from sqlalchemy.orm import Session
-import pandas as pd
 import argparse
 import sys
-from typing import Dict, Any, Union
+from pathlib import Path
+from typing import Any, Dict, Union
+
+import pandas as pd
+from sqlalchemy.orm import Session
+
+from database import SessionLocal, engine
+from models import Ticket
 
 
 def load_clean_tickets(csv_path: Union[str, Path]) -> pd.DataFrame:

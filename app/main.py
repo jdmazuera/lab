@@ -1,6 +1,7 @@
-from database import Base, engine
 from fastapi import FastAPI
+
 from api import router
+from database import Base, engine
 
 # FastAPI app
 app = FastAPI(title="FastAPI with PostgreSQL", version="1.0.0")
