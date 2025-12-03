@@ -4,7 +4,6 @@
   "service": "fastapi",
   "workspaceFolder": "/app",
   "shutdownAction": "stopCompose",
-  "postCreateCommand": "pip install --upgrade pip && pip install -r requirements.txt",
   "postStartCommand": "echo 'Container started successfully'",
   "customizations": {
     "vscode": {
@@ -15,7 +14,15 @@
         "python.linting.enabled": true,
         "python.linting.pylintEnabled": true,
         "python.formatting.provider": "black",
-        "python.sortImports.args": ["--profile", "black"]
+        "python.sortImports.args": ["--profile", "black"],
+        "files.watcherExclude": {
+          "**/.git/objects/**": true,
+          "**/.git/subtree-cache/**": true,
+          "**/.venv/**": true,
+          "**/__pycache__/**": true,
+          "**/.pytest_cache/**": true,
+          "**/*.pyc": true
+        }
       },
       "extensions": [
         "ms-python.python",
@@ -24,5 +31,5 @@
       ]
     }
   },
-  "remoteUser": "root"
+  "remoteUser": "appuser"
 }

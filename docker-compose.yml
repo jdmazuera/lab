@@ -29,7 +29,7 @@ services:
     networks:
       - app_network
     volumes:
-      - .:/app
+      - ./app:/app
 
 volumes:
   postgres_data:
